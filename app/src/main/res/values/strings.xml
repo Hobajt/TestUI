@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">TestUI</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="i_agree_with_terms_of_service">I agree with Terms of Service</string>
+    <string name="enter_your_password">Enter your password</string>
+    <string name="password">Password</string>
+    <string name="birthdate">Birthdate</string>
+    <string name="nickname">Nickname</string>
+    <string name="change">Change</string>
+    <string name="_28_7_1997">28. 7. 1997</string>
+    <string name="registration">Registration</string>
+    <string name="register">Register</string>
+    <string name="enter_your_nickname">Enter your nickname</string>
+    <string name="done">Done!</string>
+    <string name="continue_to_main_page">Continue to main page</string>
+    <string name="please_check_your_e_mail_to_confirm_your_registration">Please check your e-mail to confirm your registration.</string>
+</resources>

@@ -15,4 +15,9 @@
     <string name="done">Done!</string>
     <string name="continue_to_main_page">Continue to main page</string>
     <string name="please_check_your_e_mail_to_confirm_your_registration">Please check your e-mail to confirm your registration.</string>
+    <string name="err_msg_nickname">Nickname must be between 6 and 32 characters long.</string>
+    <string name="err_msg_pwd_length">Password must be between 8 and 32 characters long.</string>
+    <string name="err_msg_pwd_signs">Password must contain both numbers and characters.</string>
+    <string name="err_msg_age">You must be 18 years old in order to register.</string>
+    <string name="err_msg_tos">Need to agree to Terms of Service.</string>
 </resources>

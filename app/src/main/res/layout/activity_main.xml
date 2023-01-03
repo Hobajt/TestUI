@@ -28,7 +28,7 @@
         android:ems="10"
         android:hint="@string/enter_your_nickname"
         android:inputType="textPersonName"
-        android:maxLength="32"
+        android:maxLength="50"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
@@ -54,7 +54,7 @@
         android:ems="10"
         android:hint="@string/enter_your_password"
         android:inputType="textPassword"
-        android:maxLength="32"
+        android:maxLength="50"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
@@ -75,7 +75,7 @@
         app:layout_constraintVertical_bias="0.875" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/confirm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="OnBtnClick"
@@ -139,5 +139,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pwd"
         app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/err_msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/err_msg_nickname"
+        android:textAlignment="center"
+        android:textColor="#FF0000"
+        android:textSize="16sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/confirm"
+        app:layout_constraintVertical_bias="0.359" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

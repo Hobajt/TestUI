@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -17,8 +18,6 @@ import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
 import java.util.Locale;
-import java.util.regex.Pattern;
-import java.util.stream.Stream;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView dateText;
     private Button dateBtn;
+
+    private TextView err_msg;
 
     private CheckBox tos;
 
@@ -43,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
 
         dateText = (TextView) findViewById(R.id.dateText);
         dateBtn = (Button) findViewById(R.id.datePick);
+
+        err_msg = (TextView) findViewById(R.id.err_msg);
 
         dateBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,34 +88,35 @@ public class MainActivity extends AppCompatActivity {
         //validate login format (6 <= len <= 32)
         int len = login.getText().length();
         if(len < 6 || len > 32) {
-            errMsg("Nickname must be between 6 and 32 characters long.");
+            errMsg(getString(R.string.err_msg_nickname));
             return;
         }
 
         //validate password format (8 < len < 32)
         len = pwd.getText().length();
         if(len < 8 || len > 32) {
-            errMsg("Password must be between 8 and 32 characters long.");
+            errMsg(getString(R.string.err_msg_pwd_length));
             return;
         }
         //validate password format (both characters and numbers)
         boolean nums = pwd.getText().toString().replaceAll("[^0-9]", "").length() > 0;
         boolean chars = pwd.getText().toString().toLowerCase().replaceAll("[^a-z]", "").length() > 0;
         if(!(nums && chars)) {
-            errMsg("Password must contain both numbers and characters.");
+            errMsg(getString(R.string.err_msg_pwd_signs));
+            return;
         }
 
         //validate birthdate (>= 18 yo)
         long age = ChronoUnit.YEARS.between(getDateFromText(), LocalDate.now());
         //System.out.println("AGE: " + age);
         if(age < 18) {
-            errMsg("You must be 18 years old in order to register.");
+            errMsg(getString(R.string.err_msg_age));
             return;
         }
 
         //validate ToS checkbox
         if(!tos.isChecked()) {
-            errMsg("Need to agree to Terms of Service.");
+            errMsg(getString(R.string.err_msg_tos));
             return;
         }
 
@@ -121,7 +125,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void errMsg(String msg) {
-        Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
+        //Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
+
+        err_msg.setText(msg);
+        err_msg.setVisibility(View.VISIBLE);
     }
 
 }
